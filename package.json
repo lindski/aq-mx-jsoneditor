@@ -1,0 +1,48 @@
+{
+  "name": "aqjsoneditor",
+  "widgetName": "AqJsonEditor",
+  "version": "1.0.0",
+  "description": "My widget description",
+  "copyright": "© AuraQ Limited 2024. All rights reserved.",
+  "author": "Iain Lindsay",
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "Apache-2.0",
+  "config": {
+    "projectPath": "./tests/testProject",
+    "mendixHost": "http://localhost:8080",
+    "developmentPort": 3000
+  },
+  "packagePath": "com.auraq",
+  "scripts": {
+    "start": "pluggable-widgets-tools start:server",
+    "dev": "pluggable-widgets-tools start:web",
+    "build": "pluggable-widgets-tools build:web",
+    "lint": "pluggable-widgets-tools lint",
+    "lint:fix": "pluggable-widgets-tools lint:fix",
+    "prerelease": "npm run lint",
+    "release": "pluggable-widgets-tools release:web"
+  },
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "^10.7.1"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "jsoneditor": "^10.1.0"
+  },
+  "resolutions": {
+    "react": "18.2.0",
+    "react-native": "0.72.7",
+    "react-dom": "18.2.0",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0"
+  },
+  "overrides": {
+    "react": "18.2.0",
+    "react-native": "0.72.7",
+    "react-dom": "18.2.0",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0"
+  }
+}
