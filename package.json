@@ -1,7 +1,7 @@
 {
   "name": "aqjsoneditor",
   "widgetName": "AqJsonEditor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My widget description",
   "copyright": "© AuraQ Limited 2024. All rights reserved.",
   "author": "Iain Lindsay",

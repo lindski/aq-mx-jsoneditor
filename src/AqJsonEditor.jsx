@@ -37,7 +37,7 @@ export function AqJsonEditor({
 
     const handleOnChange = json => {
         // set the attribute value
-        jsonAttribute.setValue(json);
+        jsonAttribute.setValue(JSON.stringify(json));
 
         // fire the onChange event
         if (onChange != undefined) {
