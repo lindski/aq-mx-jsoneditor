@@ -14,9 +14,12 @@ export function MxJsonEditor({ json, onChange, options, style }) {
         const editor = new JSONEditor(editorRef.current, options);
         editorRef.current.jsonEditor = editor; // Store the editor instance
 
-        // Set the JSON data
-        editor.set(json);
-
+        // Set the JSON data        
+        console.debug("json", json);
+        if(json != null){
+            editor.set(json);
+        }
+        
         // Listen for changes to the JSON data in the editor
         editorRef.current.jsonEditor.options.onChange = () => {
             try{
@@ -42,7 +45,7 @@ export function MxJsonEditor({ json, onChange, options, style }) {
         return () => {
             editor.destroy();
         };
-    }, []);
+    }, [json]);
 
     return <div className="aq-jsoneditor" ref={editorRef} style={style}></div>
 }

@@ -15,25 +15,38 @@ export function AqJsonEditor({
     optionsOverride,
     height
 }) {
-    const [jsonData, setJsonData] = useState(null);
-    const [isReady, setIsReady] = useState(false);
+    const [editorState, setEditorState] = useState({ isReady: false, data: null });
 
     useEffect(() => {
+        console.debug("jsonAttribute", jsonAttribute);
         if (jsonAttribute.status === "available") {
             if (jsonAttribute.value && jsonAttribute.value !== "") {
                 try{
                     const data = JSON.parse(jsonAttribute.value);
-                    setJsonData(data);
+                    console.debug("data", data);
+                    setEditorState({
+                        isReady: true,
+                        data: data
+                    });
                 }
-                catch(e){} // invalid JSON
+                catch(e){
+                    // invalid JSON
+                    console.error(`Failed to parse JSON with error ${e.message}`, e);
+                } 
             }
-
-            setIsReady(true);
+            else{
+                setEditorState({
+                    isReady: true,
+                    data: null
+                });
+            }
         } else {
-            setIsReady(false);
-            setJsonData(null);
+            setEditorState({
+                isReady: false,
+                data: null
+            });
         }
-    });
+    }, [jsonAttribute]);
 
     const handleOnChange = json => {
         // set the attribute value
@@ -76,8 +89,8 @@ export function AqJsonEditor({
 
     return (
         <Fragment>
-            {isReady ? (
-                <MxJsonEditor json={jsonData} onChange={handleOnChange} options={getOptions()} style={heightStyle} />
+            {editorState.isReady ? (
+                <MxJsonEditor json={editorState.data} onChange={handleOnChange} options={getOptions()} style={heightStyle} />
             ) : (
                 <div className="widget-not-ready"></div>
             )}

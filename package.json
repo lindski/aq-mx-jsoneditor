@@ -1,7 +1,7 @@
 {
   "name": "aqjsoneditor",
   "widgetName": "AqJsonEditor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "My widget description",
   "copyright": "© AuraQ Limited 2024. All rights reserved.",
   "author": "Iain Lindsay",
@@ -14,7 +14,7 @@
     "mendixHost": "http://localhost:8080",
     "developmentPort": 3000
   },
-  "packagePath": "com.auraq",
+  "packagePath": "com.auraq", 
   "scripts": {
     "start": "pluggable-widgets-tools start:server",
     "dev": "pluggable-widgets-tools start:web",
