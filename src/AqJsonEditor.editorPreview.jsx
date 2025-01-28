@@ -2,7 +2,7 @@ import { createElement } from "react";
 import { MxJsonEditor } from "./components/MxJsonEditor";
 
 export function preview() {
-    return <MxJsonEditor json={{"auraq":"rocks"}} />
+    return <MxJsonEditor json={{ auraq: "rocks" }} />;
 }
 
 export function getPreviewCss() {

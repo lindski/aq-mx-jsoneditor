@@ -21,20 +21,18 @@ export function AqJsonEditor({
         console.debug("jsonAttribute", jsonAttribute);
         if (jsonAttribute.status === "available") {
             if (jsonAttribute.value && jsonAttribute.value !== "") {
-                try{
+                try {
                     const data = JSON.parse(jsonAttribute.value);
                     console.debug("data", data);
                     setEditorState({
                         isReady: true,
                         data: data
                     });
-                }
-                catch(e){
+                } catch (e) {
                     // invalid JSON
                     console.error(`Failed to parse JSON with error ${e.message}`, e);
-                } 
-            }
-            else{
+                }
+            } else {
                 setEditorState({
                     isReady: true,
                     data: null
@@ -85,12 +83,17 @@ export function AqJsonEditor({
         }
     };
 
-    const heightStyle = height && height!=="" ? {"height": height} : {}
+    const heightStyle = height && height !== "" ? { height: height } : {};
 
     return (
         <Fragment>
             {editorState.isReady ? (
-                <MxJsonEditor json={editorState.data} onChange={handleOnChange} options={getOptions()} style={heightStyle} />
+                <MxJsonEditor
+                    json={editorState.data}
+                    onChange={handleOnChange}
+                    options={getOptions()}
+                    style={heightStyle}
+                />
             ) : (
                 <div className="widget-not-ready"></div>
             )}
