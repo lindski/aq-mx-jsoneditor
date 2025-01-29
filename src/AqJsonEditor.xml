@@ -69,9 +69,10 @@
                 <caption>Show Navigation Bar</caption>
                 <description>Show the navigation bar</description>
             </property>
-            <property key="optionsOverride" type="string" multiline="true" required="false">
+            <property key="optionsOverride"  type="expression" required="false">
                 <caption>Options override</caption>
                 <description>Options object to override explicit option properties. Must be JSON. See https://github.com/josdejong/jsoneditor/blob/master/docs/api.md#configuration-options for details</description>
+                <returnType type="String" />
             </property>
         </propertyGroup>
         <propertyGroup caption="Display">

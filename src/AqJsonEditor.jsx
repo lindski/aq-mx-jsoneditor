@@ -1,6 +1,8 @@
 import { createElement, useState, useEffect, Fragment } from "react";
 import { MxJsonEditor } from "./components/MxJsonEditor";
 import "./ui/AqJsonEditor.css";
+import "./ui/themes/github";
+import "./ui/themes/github_dark";
 
 export function AqJsonEditor({
     jsonAttribute,
@@ -72,15 +74,20 @@ export function AqJsonEditor({
         options.mainMenuBar = showMainMenuBar;
         options.navigationBar = showNavigationBar;
 
-        if (optionsOverride && optionsOverride !== "") {
-            const overriddenOptions = JSON.parse(optionsOverride);
-            return {
+        if (optionsOverride && optionsOverride.value !== "") {
+            const overriddenOptions = JSON.parse(optionsOverride.value);
+            const optionsWithOverride = {
                 ...options,
                 ...overriddenOptions
             };
-        } else {
-            return options;
+
+            console.debug("options", optionsWithOverride);
+            return optionsWithOverride;
+
         }
+
+        console.debug("options", options);
+        return options;
     };
 
     const heightStyle = height && height !== "" ? { height: height } : {};

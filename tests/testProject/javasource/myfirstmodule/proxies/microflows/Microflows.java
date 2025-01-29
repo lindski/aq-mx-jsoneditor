@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class Microflows
 {
@@ -21,11 +20,15 @@ public class Microflows
 	public Microflows() {}
 
 	// These are the microflows for the MyFirstModule module
-	public static myfirstmodule.proxies.TestEntity dS_TestEntity(IContext context)
+	public static void aCT_OpenEditor_Dark(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("MyFirstModule.DS_TestEntity").withParams(params).execute(context);
-		return result == null ? null : myfirstmodule.proxies.TestEntity.initialize(context, result);
+		Core.microflowCall("MyFirstModule.ACT_OpenEditor_Dark").withParams(params).execute(context);
+	}
+	public static void aCT_OpenEditor_Light(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		Core.microflowCall("MyFirstModule.ACT_OpenEditor_Light").withParams(params).execute(context);
 	}
 	public static void wDG_JsonEditor_OnChange(IContext context, myfirstmodule.proxies.TestEntity _testEntity)
 	{

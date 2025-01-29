@@ -20,7 +20,8 @@ public class TestEntity
 	 */
 	public enum MemberNames
 	{
-		Json("Json");
+		Json("Json"),
+		EnableDarkTheme("EnableDarkTheme");
 
 		private final java.lang.String metaName;
 
@@ -157,6 +158,42 @@ public class TestEntity
 	public final void setJson(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String json)
 	{
 		getMendixObject().setValue(context, MemberNames.Json.toString(), json);
+	}
+
+	/**
+	 * @return value of EnableDarkTheme
+	 */
+	public final java.lang.Boolean getEnableDarkTheme()
+	{
+		return getEnableDarkTheme(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of EnableDarkTheme
+	 */
+	public final java.lang.Boolean getEnableDarkTheme(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.EnableDarkTheme.toString());
+	}
+
+	/**
+	 * Set value of EnableDarkTheme
+	 * @param enabledarktheme
+	 */
+	public final void setEnableDarkTheme(java.lang.Boolean enabledarktheme)
+	{
+		setEnableDarkTheme(getContext(), enabledarktheme);
+	}
+
+	/**
+	 * Set value of EnableDarkTheme
+	 * @param context
+	 * @param enabledarktheme
+	 */
+	public final void setEnableDarkTheme(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean enabledarktheme)
+	{
+		getMendixObject().setValue(context, MemberNames.EnableDarkTheme.toString(), enabledarktheme);
 	}
 
 	/**
